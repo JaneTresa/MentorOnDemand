@@ -1,0 +1,157 @@
+<head>
+    
+        <style>
+          .navbar {
+            background-color:rgb(14, 99, 179);
+        }
+        .bg
+        {
+           background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+          background-size: cover;
+          min-height: 700px;
+        }
+
+      
+
+        
+        .header {
+            height: 30px;
+        }
+        
+    
+
+
+
+.button {
+    background-color: rgb(14, 99, 179);
+}
+
+.footer {
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgb(14, 99, 179);
+    color: white;
+}
+.text
+{
+    color: white;
+}
+
+.trans
+        {
+            background: rgba(20, 2, 2, 0.644);
+            background: rgba(30, 32, 34, 0.5);
+        }
+       
+      </style>
+       </head>
+
+<body class="bg">
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-dark  ">
+            <a class="navbar-brand text-white" href="#">
+                <i class="fa fa-cubes"></i>
+            </a>
+            <a class="navbar-brand" href="#">Mentor On Demand</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white "routerLink="/Login/" (click)="logout()">LogOut</a>
+                        </li>
+                        
+                           
+                </ul>
+        </div>
+        </nav>
+    </header>
+    <br/>
+    <br/>
+
+
+
+
+   
+        <div class="container">
+         <div class="row">
+             <div class="col-md-8 mx-auto">
+                 <label style="font-size:30px">Search Your Interest !!</label><br/>
+                 <form class="navbar-form navbar-left" role="search">
+                     <div class="input-group ">
+                         <span class="input-group-btn"><button class="btn btn-secondary"><i class="fa fa-search"></i></button></span>
+                         <input name="search" type="text" class="form-control"  [(ngModel)]="searchKey"   placeholder="Search for trainers">
+                     </div>
+                 </form>
+             </div>
+          </div>
+         </div>
+     
+     
+<br/>
+<br/>
+
+    <div class="row  card-group ">
+            <div class="col-lg-3"  *ngFor="let rec of mentorDetails|filter:searchKey">
+                <div class="container ">
+                    <div class="card trans " style="width:300px;height:250px;margin-left:15px">
+                        
+                        <span class="card-body">
+                            <span class="card-title text " style="font-size:20px">{{rec.men_Name}}</span><span style="float:right"></span>
+                            <br />
+                            <label class="mt-2 text" style="font-size:15px">LinkedIn :{{rec.lin_url}}</label><span class="badge badge-info mt-2" style="float:right"></span> 
+                            <br />
+                            <label class="mt-2 text" style="font-size:15px">Skill :{{rec.name_of_skill}}</label><span class="badge badge-info mt-2" style="float:right"></span> 
+                            <br />
+                            <label class="mt-2 text" style="font-size:15px"> Experience :{{rec.skill_exp}}</label><span class="badge badge-info mt-2" style="float:right" > </span>
+
+                                    <label class="mt-2 text" style="font-size:15px">No.trainings :{{rec.trainings_delivered}}</label><span class="badge badge-info mt-2" style="float:right" > </span>
+                            <br/>
+                            <button (click)="sendReq(rec.mid,rec.sk_Id)" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg mt-2" style="background-color:#3a3130;float:right;border:none">Request</button>
+        
+                        </span>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+        
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+               
+                
+                
+                <div class="modal-body">
+                  Request sent successfully !!
+                </div>
+                
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+       
+      
+    
+
+            
+
+
+</body>
+<footer class="bottom-footer footer">
+
+        <br/><p style="margin-left:50px">Copyright 2019</p>
+
+    </footer>

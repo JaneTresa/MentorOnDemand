@@ -1,0 +1,193 @@
+<head>
+    
+        <style>
+        .navbar {
+                background-color:rgb(14, 99, 179);
+            }
+            .bg
+            {
+               background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+              background-size: cover;
+              min-height: 700px;
+            }
+    
+          
+    
+            
+            .header {
+                height: 30px;
+            }
+            
+        
+    
+    
+    
+    .button {
+        background-color: rgb(14, 99, 179);
+    }
+    
+    .footer {
+        height: 40px;
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        background-color: rgb(14, 99, 179);
+        color: white;
+    }
+    
+    
+    .trans
+            {
+                background: rgba(20, 2, 2, 0.644);
+                background: rgba(87, 128, 167, 0.5);
+            }
+           
+    .text
+    {
+        color:white
+    }
+            
+        </style>
+    </head>
+    
+    <body class="bg ">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark  ">
+                <a class="navbar-brand text-white" href="#">
+                    <i class="fa fa-cubes"></i>
+    
+                </a>
+                <a class="navbar-brand" href="#">Mentor On Demand</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                    <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white "routerLink="/Login/"(click)="logout()">LogOut</a>
+                            </li>
+                            
+                               
+                    </ul>
+            </div>
+                
+            </nav>
+        </header>
+        <br/>
+        
+<h2>Add Skills Here!!</h2>
+
+<div class="container trans" style="width: 2000px;">
+        <form (ngSubmit)="add(user)" #skillForm="ngForm" >
+                
+
+            <div class="col">
+                
+              
+                <label for="skills"><b>Skills</b></label>
+                
+                <select  id="skills" class="form-control" name="skills" [(ngModel)]="user.skId" #skill2="ngModel">
+                    <option *ngFor="let ski of skill" [value]="ski.skId">{{ski.skName}}</option>
+                   
+                    
+                </select>
+                </div>
+             
+
+                <div class="col">
+                       
+                            <label for="rating"><b>Rating</b></label>
+                            <br />
+                            
+                            <input type="number" class="form-control" required  id="rating"name="rating" [(ngModel)]="user.msSelfRating" #rating="ngModel">
+                            <div *ngIf="(rating.invalid && rating.touched)" class="invalid-feedback alertmsg">
+                                <div *ngIf="rating.errors.required"><b>Rating is required</b></div>
+                                </div>
+                                 
+                 
+                </div>
+
+                <div class="col">
+               
+                        <label for="yoe"><b>Years of Experience</b></label>
+                        <br />
+                        
+                        <input type="number" class="form-control" required id="yoe"name="yoe" [(ngModel)]="user.msYearsOfExperience" #yoe="ngModel">
+                        <div *ngIf="(yoe.invalid && yoe.touched)" class="invalid-feedback alertmsg">
+                            <div *ngIf="yoe.errors.required"><b>Years of Eaperience is required</b></div>
+                            </div>
+                             
+                  
+            </div>
+
+            <div class="col">
+              
+                    <label for="td"><b>Trainings Delivered</b></label>
+                    <br />
+                    
+                    <input type="number" class="form-control" required  id="td"name="td" [(ngModel)]="user.msTrainingDelivered" #td="ngModel">
+                    <div *ngIf="(td.invalid && td.touched)" class="invalid-feedback alertmsg">
+                        <div *ngIf="td.errors.required"><b>Trainings Delivered is required</b></div>
+                        </div>
+                         
+                
+        </div>
+
+        <div class="col">
+          
+                <label for="fo"><b>Facilities Offered</b></label>
+                <br />
+                
+                <input type="text" class="form-control" required  id="fo"name="fo" [(ngModel)]="user.msFacilitiesOffered" #fo="ngModel">
+                <div *ngIf="(fo.invalid && fo.touched)" class="invalid-feedback alertmsg">
+                <div *ngIf="fo.errors.required"><b>Facilities Offered is required</b></div>
+                 
+                     
+            </div>
+    </div>
+    
+    <div class="container">
+            <span>
+                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="background-color:rgb(54, 54, 54);"[disabled]="skillForm.invalid">Add</button>
+                
+            </span>
+      
+        
+      
+       
+           
+        
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                
+                 
+                   
+                   
+                  
+                  <div class="modal-body">
+                    Skill added successfully !!
+                  </div>
+                  
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        
+        </form>
+    </div>
+    <footer class="bottom-footer footer">
+
+            <br /><p style="margin-left:50px">Copyright 2019</p>
+    
+        </footer>
+    </body>
+    

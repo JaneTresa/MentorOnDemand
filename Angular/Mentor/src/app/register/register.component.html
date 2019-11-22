@@ -1,0 +1,229 @@
+
+<head>
+    
+        <style>
+          .navbar {
+            background-color:rgb(14, 99, 179);
+        }
+        .bg
+        {
+           background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+          background-size: cover;
+          min-height: 700px;
+        }
+
+      
+
+        
+        .header {
+            height: 30px;
+        }
+        
+    
+
+
+
+.button {
+    background-color: rgb(14, 99, 179);
+}
+
+.footer {
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgb(14, 99, 179);
+    color: white;
+}
+
+
+.trans
+        {
+            background: rgba(20, 2, 2, 0.644);
+            background: rgba(87, 128, 167, 0.5);
+        }
+       
+      </style>
+       </head>
+
+<body class="bg">
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-dark  ">
+            <a class="navbar-brand text-white" href="#">
+                <i class="fa fa-cubes"></i>
+            </a>
+            <a class="navbar-brand" href="#">Mentor On Demand</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link text-white " routerLink="/Login/">Login</a>
+                    </li>
+                   
+
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br/>
+    <br/>
+    <div class="container">
+    <div class="row">
+            <div class="col"><h3 >Register Here !!</h3></div>
+        </div>
+    </div>
+    <br/>
+    <form (ngSubmit)="addUser(user)" name="registerform" #registerform="ngForm" *ngIf="flag">
+        <div class="container trans">
+
+            
+           
+            <div class="row">
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="email"><b>Email</b></label>
+                                <br />
+                                <input type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" class="form-control" required [class.is-invalid]="email.invalid && email.touched" id="email" placeholder="Email" name="email" [(ngModel)]="user.email" #email="ngModel">
+                                <div *ngIf="(email.invalid && email.touched)" class="invalid-feedback alertmsg">
+                                    <b *ngIf="email.errors.required">Email is required</b>
+                                    <b *ngIf="email.errors.pattern">Enter a vailid email Id</b>
+                                  </div>
+                                      <div  class="text-error text-danger" *ngIf="Unique(email.value)&& email.touched && email.dirty && email.value!=''" >Email already exist</div>
+    
+                                      
+                                      
+                            </div>
+                    </div>
+
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="pass"><b>Password</b></label>
+                                <br />
+                                <input type="password" required minlength="6" required maxlength="10" class="form-control" required [class.is-invalid]="pass.invalid && pass.touched" id="pass" placeholder="Password" name="pass" [(ngModel)]="user.pass" #pass="ngModel">
+                                <div *ngIf="(pass.invalid && pass.touched)" class="invalid-feedback alertmsg">
+                                    <b *ngIf="pass.errors.required">Password is required</b>
+                                    </div>
+                            </div>
+                    </div>
+                <div class="col">
+                    <div class="form-group"  >
+                        <label for="first_name" ><b>First Name</b></label>
+                        <br />
+                        <input type="text" required pattern="^[a-zA-Z]{1,15}$"  class="form-control"  required [class.is-invalid]="firstName.invalid && firstName.touched" id="first_name" placeholder="First Name" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"> 
+                        <div *ngIf="(firstName.invalid && firstName.touched)" class="invalid-feedback alertmsg">
+                            <b *ngIf="firstName.errors.required">Firstname is required</b>
+                            <b *ngIf="firstName.errors.pattern">Firstname should not contain numbers</b>
+                          </div>
+                  
+                
+            
+
+                    </div>
+                </div>
+                <div class="col">
+                        <div class="form-group" >
+                            <label for="last_name"><b>Last Name</b></label>
+                            <br />
+                            <input type="text" required pattern="^[a-zA-Z]{1,15}$"   class="form-control" required [class.is-invalid]="lastName.invalid && lastName.touched" id="last_name" placeholder="Last Name" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel">
+                                   
+        <div *ngIf="(lastName.invalid && lastName.touched)" class="invalid-feedback alertmsg">
+            <div *ngIf="lastName.errors.required"><b>Lastname is required</b></div>
+            <div *ngIf="lastName.errors.pattern"><b>Lastname should not contain numbers</b>
+          </div>
+
+                        </div>
+                    </div>
+                </div>
+                    
+                      
+            </div>
+           
+
+           
+
+            <div class="row">
+                   
+                
+                   
+                <div class="col">
+                        <div class="form-group">
+                                <label for="datepicker"><b>Date</b></label>
+                                
+                           
+                                <input type="date" class="form-control"id="datepicker" name="regDatetime" [(ngModel)]="user.regDatetime" #regDatetime="ngModel" 
+                               min='2019-11-12' max='2020-05-10'>
+                               <div *ngIf="(regDatetime.invalid && regDatetime.touched)" class="invalid-feedback alertmsg">
+                                <div *ngIf="regDatetime.errors.required"><b>Date is required</b></div>
+                                </div>
+                               
+                        </div>
+                </div>
+                <div class="col">
+                        <div class="form-group">
+                            <label for="contacts"><b>Contact</b></label>
+                            <br />
+                            
+                            <input type="text" required pattern="^[6-9]{1}[0-9]{9}$"  maxlength="10" class="form-control"  id="contacts"name="contacts" [(ngModel)]="user.contacts" #contacts="ngModel">
+                           
+                            <div *ngIf="(contacts.invalid && contacts.touched)" class="invalid-feedback alertmsg">
+                               <div *ngIf="contacts.errors.required"><b>Contact is required</b></div>
+                               <div *ngIf="contacts.errors.pattern"><b>Contact should not contain characters</b>
+                                </div>
+                                 
+                        </div>
+                </div>
+                
+            </div>
+            </div>
+<br/>
+<div class="container">
+        <div class="row">
+                <div class="col">
+                    <button type="submit"  class="btn btn-primary btn-lg mt-2" data-toggle="modal" data-target="#myModal" style="background-color:rgb(54, 54, 54); border:none"  [disabled]="registerform.invalid">Save</button>
+                </div>
+            </div> 
+           
+        </div>
+
+         
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+               
+                 
+                
+                <div class="modal-body">
+                  Registered successfully !!
+                </div>
+                
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      
+
+  
+  
+                        
+    </form>
+   
+         
+    <footer class="bottom-footer footer">
+
+        <br/><p style="margin-left:50px">Copyright 2019</p>
+
+    </footer>
+</body>

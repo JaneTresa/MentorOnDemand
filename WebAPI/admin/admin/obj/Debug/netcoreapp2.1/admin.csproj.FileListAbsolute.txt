@@ -1,0 +1,14 @@
+C:\Users\802354\source\repos\admin\admin\bin\Debug\netcoreapp2.1\admin.deps.json
+C:\Users\802354\source\repos\admin\admin\bin\Debug\netcoreapp2.1\admin.runtimeconfig.json
+C:\Users\802354\source\repos\admin\admin\bin\Debug\netcoreapp2.1\admin.runtimeconfig.dev.json
+C:\Users\802354\source\repos\admin\admin\bin\Debug\netcoreapp2.1\admin.dll
+C:\Users\802354\source\repos\admin\admin\bin\Debug\netcoreapp2.1\admin.pdb
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.csprojAssemblyReference.cache
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.csproj.CoreCompileInputs.cache
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.RazorAssemblyInfo.cache
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.RazorAssemblyInfo.cs
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.AssemblyInfoInputs.cache
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.AssemblyInfo.cs
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.RazorTargetAssemblyInfo.cache
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.dll
+C:\Users\802354\source\repos\admin\admin\obj\Debug\netcoreapp2.1\admin.pdb

@@ -1,0 +1,172 @@
+<head>
+      
+        <style>
+        .navbar {
+                background-color:rgb(14, 99, 179);
+            }
+            .bg
+            {
+               background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+              background-size: cover;
+              min-height: 700px;
+            }
+    
+          
+    
+            
+            .header {
+                height: 30px;
+            }
+            
+        
+    
+    
+    
+    .button {
+        background-color: rgb(14, 99, 179);
+    }
+    .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    
+    .footer {
+        height: 40px;
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        background-color: rgb(14, 99, 179);
+        color: white;
+    }
+    
+    table {
+  border-collapse: collapse;
+  
+  border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color:rgb(125, 178, 228);;}
+.trans
+      {
+          background: rgba(20, 2, 2, 0.644);
+          background: rgba(225, 227, 228, 0.5);
+      }
+     
+           
+    .text
+    {
+        color:white
+    }
+            
+        </style>
+       
+                   
+    </head>
+    
+    <body class="bg ">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark  ">
+                <a class="navbar-brand text-white" href="#">
+                    <i class="fa fa-cubes"></i>
+    
+                </a>
+                <a class="navbar-brand" href="#">Mentor On Demand</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                  <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                              <a class="nav-link text-white "routerLink="/Login/" (click)="logout()">LogOut</a>
+                          </li>
+                          
+                             
+                  </ul>
+          </div>
+            </nav>
+        </header>
+        <br/>
+    <br/>
+
+
+   
+
+    <div>
+            <table style="width:80%"class="table table-hover table-border trans">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Skill Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                       
+                      
+                  <tr *ngFor="let rec  of mentor">
+                    <td >{{rec.userId}}</td>
+                    <td>{{rec.first_Name}}</td>
+                    <td>{{rec.skill_Name}}</td>
+               
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+
+        
+        <button routerLink="/Addskill/" type="button" class="btn btn-primary" style="width: fit-content;">Add Skill</button>
+</body>
+
+    <footer class="bottom-footer footer">
+
+            <br /><p style="margin-left:50px">Copyright 2019</p>
+    
+        </footer>
+    
+    

@@ -1,0 +1,150 @@
+
+<head>
+    
+    <style>
+    .navbar {
+            background-color:rgb(14, 99, 179);
+        }
+        .bg
+        {
+           background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+          background-size: cover;
+          min-height: 700px;
+        }
+
+      
+
+        
+        .header {
+            height: 30px;
+        }
+        
+    
+
+
+
+.button {
+    background-color: rgb(14, 99, 179);
+}
+
+.footer {
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgb(14, 99, 179);
+    color: white;
+}
+
+
+.trans
+        {
+            background: rgba(20, 2, 2, 0.644);
+            background: rgba(99, 133, 160, 0.5);
+        }
+       
+.text
+{
+    color:white
+}
+        
+    </style>
+</head>
+
+<body class="bg ">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark  ">
+            <a class="navbar-brand text-white" href="#">
+                <i class="fa fa-cubes"></i>
+
+            </a>
+            <a class="navbar-brand" href="#">Mentor On Demand</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                    <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white "routerLink="/Login/">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white " routerLink="/Register/">User SignUp</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link text-white " routerLink="/MentorRegister/">Mentor SignUp</a>
+                                </li>
+                               
+                    </ul>
+            </div>
+        </nav>
+    </header>
+    <br/>
+    
+        <div class="row mt-5">
+
+            <div class="col mx-auto">
+                    
+                <div class="card mx-auto trans" style="width:400px;">
+                        
+                    <div class="card-body">
+                        
+                            <h2>Login</h2>
+                        <form (ngSubmit)="onSubmit(pass.value,role.value)" #loginForm="ngForm">
+                                <div class="col">
+                                        <div class="form-group">
+                                        <label for="role">Role</label>
+                                        
+                                        <select class="form-control" required [class.is-invalid]="role.invalid && role.touched" id="role" name="role" ngModel #role="ngModel">
+                                            <option value="User">User</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Mentor">Mentor</option>
+                                            
+                                        </select>
+                                        <small class="text-danger" [class.d-none]="role.valid || role.untouched">
+                                                Role is Required
+                                              </small>
+                                    </div>
+                                    </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control"  (blur)="userValid(email.value,role.value)" id="email" name="email" ngModel placeholder="Enter Email" #email="ngModel">
+                                <small *ngIf="flag">
+                                    <span style="color:brown">{{msg}}</span> 
+                                </small>
+                                
+                                 
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" required [class.is-invalid]="pass.invalid && pass.touched" id="password" name="password"  ngModel placeholder="Enter Password" #pass="ngModel">
+                                <small class="text-danger" [class.d-none]="pass.valid || pass.untouched">
+                                    Password is Required
+                                  </small>
+                            </div>
+                            
+                            <br/>
+
+                            <span style="color:brown">{{passmsg}}</span> 
+
+                           
+                            <span>
+                                <button type="submit" class="btn btn-primary" style="background-color:rgb(54, 54, 54);"[disabled]="loginForm.invalid" >Login</button>
+                                New here? <a routerLink="/Register/">Register</a>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    
+    <footer class="bottom-footer footer">
+
+        <br /><p style="margin-left:50px">Copyright 2019</p>
+
+    </footer>
+</body>

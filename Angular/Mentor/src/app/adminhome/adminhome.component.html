@@ -1,0 +1,113 @@
+<head>
+    <style>
+        .navbar {
+          background-color:rgb(14, 99, 179);
+      }
+      .bg
+        {
+           background-image: url('https://images.unsplash.com/photo-1484036218807-91efe1baff2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'); 
+          background-size: cover;
+          min-height: 700px;
+        }
+
+    
+
+      
+      .header {
+          height: 30px;
+      }
+      
+  
+
+
+
+.button {
+  background-color: rgb(14, 99, 179);
+}
+
+.footer {
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  background-color: rgb(14, 99, 179);
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  
+  border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color:rgb(125, 178, 228);;}
+.trans
+      {
+          background: rgba(20, 2, 2, 0.644);
+          background: rgba(87, 128, 167, 0.5);
+      }
+     
+    </style>
+</head>>
+<body class="bg">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark  ">
+            <a class="navbar-brand text-white" href="#">
+                <i class="fa fa-cubes"></i>
+
+            </a>
+            <a class="navbar-brand" href="#">Mentor On Demand</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" style="color:white" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+              <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link text-white "routerLink="/Login/"(click)="logout()">LogOut</a>
+                      </li>
+                      
+                         
+              </ul>
+      </div>
+        </nav>
+    </header>
+<br/>
+<br/>
+    <div>
+        <table style="width:80%"class="table table-hover table-border">
+            <thead>
+              <tr>
+                <th>Skill Name</th>
+                <th>Skill Toc</th>
+                <th>Duration(months)</th>
+                <th>Pre-requistes</th>
+              </tr>
+            </thead>
+            <tbody>
+                  
+              <tr *ngFor="let rec  of admin">
+                <td >{{rec.skName}}</td>
+                <td>{{rec.skToc}}</td>
+                <td>{{rec.skDuration}}</td>
+                <td>{{rec.skPrerequistes}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</body>
+<footer class="bottom-footer footer">
+
+        <br /><p style="margin-left:50px">Copyright 2019</p>
+
+    </footer>
